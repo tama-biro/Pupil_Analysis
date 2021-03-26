@@ -2,6 +2,8 @@
 library(lme4)
 library(ggplot2)
 
+# Dataset used is output of preprocessing script
+
 # Remove missing trials
 data_analyze <- data_summary[data_summary$TrialInclusion == 1 &
                                data_summary$SubjectInclusion == 1, ]
