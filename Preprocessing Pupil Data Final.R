@@ -4,10 +4,9 @@
 
 library(seewave)
 
-# Load data
-sample_level <- read.csv('/Users/sam/Downloads/sample_level_data.csv')
-fixation_level <- read.csv('/Users/sam/Downloads/fixation_level_data.csv')
-data_summary <- read.csv('/Users/sam/Downloads/data_summary.csv')
+# Load data (this can be found at https://osf.io/yz9e6/)
+sample_level <- read.csv('decision.csv')
+data_summary <- read.csv('eye.csv')
 
 # StimulusName on data_summary
 data_summary$StimulusName <- data_summary$Gain * 100 + data_summary$Loss
@@ -24,7 +23,6 @@ sample_level$PupilLeft_Work[sample_level$PupilLeft_Work < 1] <- NA
 
 # Filter through data and remove NAs
 # Interpolate data from 100ms on either side
-
 while(sum(is.na(sample_level$PupilLeft_Work)) > 1) {
   for(i in which(is.na(sample_level$PupilLeft_Work))){
     
